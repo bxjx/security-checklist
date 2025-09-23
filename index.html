@@ -246,8 +246,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Security Checklist</h1>
-            <p class="subtitle">For Australian Community Groups</p>
+            <h1>Australian Protest Security Checklist</h1>
         </header>
 
         <div class="progress-container">
@@ -261,7 +260,6 @@
         </div>
 
         <footer>
-            <p>Keep your community safe and secure</p>
         </footer>
     </div>
 
@@ -272,23 +270,23 @@
                 items: [
                     {
                         label: "Use passcode or fingerprint unlock only (not face unlocking)",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Face unlock can be forced by pointing the phone at your face.</p><ol><li><strong>iPhone:</strong> Settings > Face ID & Passcode > Turn Off Face ID. Then enable Touch ID or set a strong passcode (Settings > Face ID & Passcode > Change Passcode)</li><li><strong>Android:</strong> Settings > Security > Screen lock > Choose Fingerprint or PIN/Password (avoid Face unlock)</li></ol>"
                     },
                     {
                         label: "Enable device encryption",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Encryption protects your data if your device is seized or stolen.</p><ol><li><strong>iPhone:</strong> Encrypted by default when you set a passcode</li><li><strong>Android:</strong> Settings > Security > Encrypt phone (most modern Android devices are encrypted by default)</li></ol>"
                     },
                     {
                         label: "Auto-updates enabled",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Security updates patch vulnerabilities that could be exploited.</p><ol><li><strong>iPhone:</strong> Settings > General > Software Update > Automatic Updates (turn on)</li><li><strong>Android:</strong> Settings > System > System update > Auto-download over Wi-Fi (turn on)</li></ol>"
                     },
                     {
                         label: "Voice control and 'always listening' assistants turned off",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> These features can inadvertently record sensitive conversations.</p><ol><li><strong>iPhone - Siri:</strong> Settings > Siri & Search > Disable 'Listen for Hey Siri' and 'Press Side Button for Siri'</li><li><strong>Android - Google Assistant:</strong> Settings > Google > Search, Assistant & Voice > Google Assistant > Turn off</li><li><strong>Alexa/Other:</strong> Disable or remove these apps entirely</li></ol>"
                     },
                     {
-                        label: "Seized or confiscated phones are not to be used (for ongoing comms with fellow activists)",
-                        instructions: ""
+                        label: "Seized or confiscated phones are not to be used",
+                        instructions: "<p><strong>Why:</strong> If police have had physical access to your phone, it may be compromised with spyware or monitoring software.</p><ol><li>Assume any device that has been in police custody is no longer secure</li><li>Get a new device and new phone number for sensitive communications</li><li>Notify your contacts through a secure channel that your old number/device is compromised</li><li>Do not restore from backups of the compromised device</li></ol>"
                     }
                 ]
             },
@@ -296,16 +294,16 @@
                 title: "Phones at Actions",
                 items: [
                     {
-                        label: "Option of burner phones",
-                        instructions: ""
+                        label: "Use a burner phone if possible",
+                        instructions: "<p><strong>Why:</strong> A burner phone keeps your personal device and identity separate from protest activities.</p><ol><li>Try to find an old phone to take to the action instead of your primary device</li><li>Only set the phone up with the minimum contacts needed</li><li>Never link it to sensitive personal accounts or home Wi-Fi</li><li>Consider using it with your regular number, or get a separate prepaid SIM if possible</li></ol>"
                     },
                     {
-                        label: "Briefing on police rights with access to phones",
-                        instructions: ""
+                        label: "Know your rights with unlocking phones",
+                        instructions: "<p><strong>Know your rights in NSW:</strong></p><ol><li>Police cannot force you to unlock your phone without a court order (Digital Access Order under Crimes Act 1914)</li><li>You have the right to refuse to provide your PIN, password, or biometric access</li><li>Police can only search your phone with your consent, a warrant, or Digital Access Order</li><li>If arrested, clearly state 'I do not consent to a phone search' and ask for a lawyer</li><li>For detailed guidance, see <a href='https://www.legalaid.nsw.gov.au/my-problem-is-about/a-criminal-charge/police-and-my-rights' target='_blank'>Legal Aid NSW: Police and My Rights</a></li></ol>"
                     },
                     {
-                        label: "Consider leaving phone behind or risk confiscation. If willing to take the risk, use the Phone Protest Checklist",
-                        instructions: ""
+                        label: "Do not bring personal phone or otherwise secure and delete data",
+                        instructions: "<p><strong>Best practice:</strong> Leave your phone at home when attending actions.</p><p><strong>If you must bring a phone:</strong></p><ol><li>Ensure the Phone checklist above is complete</li><li>Delete sensitive apps, messages, and photos before attending</li></ol>"
                     }
                 ]
             },
@@ -314,11 +312,11 @@
                 items: [
                     {
                         label: "Have a password",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> A strong password prevents unauthorized access to your device.</p><p><strong>Create a strong passphrase:</strong></p><ol><li>Use 6+ random words</li><li>Generate a random passphrase at <a href='https://www.eff.org/dice' target='_blank'>EFF Dice Passphrase Generator</a></li><li>Avoid common patterns, personal information, or dictionary words</li></ol><p><strong>Set up password and screen lock:</strong></p><ol><li><strong>Mac:</strong> System Settings > Users & Groups > Change password. Then Lock Screen > Require password after 10 minutes</li><li><strong>Windows:</strong> Settings > Accounts > Sign-in options > Password. Then Settings > Personalization > Lock screen > Screen timeout (10 minutes)</li><li><strong>Linux:</strong> Settings > Users (or Privacy) > Set password. Screen lock varies by desktop environment</li></ol>"
                     },
                     {
                         label: "Have hard-drive encryption",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Encryption protects all your data if your laptop is seized, stolen, or lost.</p><ol><li><strong>Mac:</strong> System Settings > Privacy & Security > FileVault > Turn On FileVault (save the recovery key securely offline)</li><li><strong>Windows:</strong> Settings > Privacy & Security > Device encryption (or BitLocker for Pro versions)</li><li><strong>Linux:</strong> Use LUKS encryption during OS installation, or set up with cryptsetup command</li></ol>"
                     }
                 ]
             },
@@ -326,16 +324,16 @@
                 title: "Signal",
                 items: [
                     {
-                        label: "All new participants in action coordinating signal groups must be vetted by two or more people (see vetting guide)",
-                        instructions: ""
+                        label: "Vet participants in sensitive signal groups",
+                        instructions: "<p><strong>Why:</strong> Vetting makes it harder for infiltration by undercover police or bad actors.</p><ol><li>New members must be personally known and trusted by at least 2 existing members</li></ol>"
                     },
                     {
                         label: "Signal should have Screen Lock and Hide Screen in App Switcher enabled",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> These settings protect your messages if someone gets physical access to your unlocked phone.</p><ol><li>Open Signal > Settings (profile icon) > Privacy</li><li>Enable <strong>Screen Lock</strong> (requires PIN/fingerprint to open Signal)</li><li>Enable <strong>Screen Security</strong> (hides content in app switcher and prevents screenshots)</li><li>Set Screen Lock timeout to 'Instant' or '1 minute'</li></ol>"
                     },
                     {
                         label: "Online coordination is done in Signal channels with disappearing messages set to 1 week or less",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Disappearing messages reduce the digital trail of your organizing activities.</p><ol><li>In each Signal group: tap the group name > Disappearing messages</li><li>Set to <strong>1 week maximum</strong> for action coordination (or shorter for sensitive planning)</li><li>For very sensitive discussions, use 24 hours or 1 hour</li><li>Remember: recipients can still screenshot before messages disappear</li><li><strong>Delete for Everyone:</strong> Long-press any message you've sent > Delete > Delete for Everyone. This removes it from all devices immediately, even before the disappearing timer expires</li></ol>"
                     }
                 ]
             },
@@ -344,7 +342,7 @@
                 items: [
                     {
                         label: "All sensitive documents should be stored in CryptPad with a password and destruction date",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> CryptPad provides end-to-end encrypted collaborative documents with auto-destruction.</p><ol><li>Go to <strong>cryptpad.fr</strong> and create an account (or use without an account for extra anonymity)</li><li>Create a new document (pad, sheet, or form)</li><li>Click 'Share' > 'Access' > Set a <strong>password</strong> to protect the document</li><li>Set a <strong>destruction date</strong> under document properties (destroys automatically after a set time)</li><li>Share only the password-protected link through Signal</li><li>Delete documents immediately after they're no longer needed</li><li>Never store sensitive documents in Google Docs, Dropbox, or other unencrypted services</li></ol>"
                     }
                 ]
             },
@@ -353,15 +351,15 @@
                 items: [
                     {
                         label: "Best practice is to only discuss specifics of action/tactical information and planning in person away from devices (ie, not on video conference)",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Video conferencing creates digital records and potential surveillance opportunities.</p><ol><li>Meet in person for detailed tactical planning whenever possible</li><li>Choose locations away from smartphones and smart devices (leave phones outside the room)</li><li>Use video calls only for general updates and coordination</li><li>Be aware that any digital platform can be compromised or subpoenaed</li><li>Consider that even encrypted calls can have metadata (who talked to whom, when, for how long)</li></ol>"
                     },
                     {
                         label: "Video conferencing is done via Signal (installed on a computer rather than on phone)",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Signal video calls are end-to-end encrypted and leave minimal metadata.</p><ol><li>Download Signal Desktop from <strong>signal.org/download</strong></li><li>Link it to your Signal account by scanning the QR code from your phone</li><li>Start video calls from Signal Desktop rather than your phone for better security control</li><li>Verify that the call shows the security number before discussing sensitive topics</li><li>Use Signal for video calls over Zoom, Teams, or other corporate platforms</li></ol>"
                     },
                     {
                         label: "If Zoom is used, encryption must be turned on (requires everyone to use the Zoom app rather than online Zoom)",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Zoom's end-to-end encryption (E2EE) prevents Zoom from accessing your call content.</p><ol><li>All participants must download and use the Zoom desktop/mobile app (web browser version doesn't support E2EE)</li><li><strong>Host settings:</strong> Account > Settings > In Meeting (Advanced) > Allow use of end-to-end encryption</li><li>When creating a meeting: Check 'Require encryption for 3rd party endpoints' and 'Enable E2E encryption'</li><li>During the call: Look for the green shield icon that says 'Encrypted' in the top-left corner</li><li><strong>Warning:</strong> E2EE disables cloud recording, live transcription, and some other features</li><li>Still prefer Signal for sensitive discussions when possible</li></ol>"
                     }
                 ]
             },
@@ -370,11 +368,11 @@
                 items: [
                     {
                         label: "Lock down personal social media accounts by default",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Public social media profiles can be used to identify, track, and harass activists.</p><ol><li><strong>Facebook:</strong> Settings > Privacy > Set 'Who can see your future posts' to 'Friends'. Limit past posts visibility</li><li><strong>Instagram:</strong> Settings > Privacy > Private Account (on). Hide story from specific people if needed</li><li><strong>Twitter/X:</strong> Settings > Privacy and safety > Protect your posts (makes account private)</li><li><strong>Review privacy settings:</strong> Use your browser's incognito/private mode to view your profile as others see it. Check who can see your friends list, photos, and check-ins</li><li>Disable location tagging on all posts</li><li>Consider using a pseudonym or separate account for activism</li></ol>"
                     },
                     {
                         label: "Review the public information about you to prevent doxxing",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Doxxing (publicly releasing personal information) is a common tactic to intimidate activists.</p><ol><li>Google your name, phone number, email address, and usernames to see what's public</li><li>Manually request removal from sites like TruePeopleSearch and WhitePages using their opt-out forms</li><li>Note: Most automated privacy removal services don't cover Australian sites. You'll need to submit removal requests individually to each data broker</li></ol>"
                     }
                 ]
             },
@@ -383,11 +381,11 @@
                 items: [
                     {
                         label: "Review best practices on protection from scams and phishing",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Phishing attacks are a common way to compromise activist accounts and organizations.</p><ol><li><strong>Verify sender identity:</strong> Check email addresses carefully (not just display names). Hover over links before clicking</li><li><strong>Watch for urgency tactics:</strong> Be suspicious of emails demanding immediate action or threatening account closure</li><li><strong>Never enter passwords from email links:</strong> Always go directly to the website by typing the URL yourself</li><li><strong>Be wary of unusual requests:</strong> Verify requests for money, credentials, or sensitive info through a separate communication channel</li><li><strong>Report suspicious emails:</strong> Forward to your IT admin or mark as phishing in your email client</li></ol>"
                     },
                     {
                         label: "Consider using a password manager",
-                        instructions: ""
+                        instructions: "<p><strong>Why:</strong> Password managers enable you to use strong, unique passwords for every account without having to remember them all.</p><p><strong>Use Bitwarden:</strong></p><ol><li>Free, open-source, and works across all devices and browsers</li><li>Sign up at <a href='https://bitwarden.com/' target='_blank'>bitwarden.com</a> and install the browser extension or app</li><li>Create a strong master password using 6+ random words (see laptop password instructions above)</li><li>Use Bitwarden to generate random 20+ character passwords for each account</li><li>Enable two-factor authentication (2FA) - This requires a second verification step (like a code from an authenticator app) in addition to your master password, making your account much more secure even if someone learns your password</li><li>Store your master password securely offline as backup</li><li>Bitwarden uses zero-knowledge encryption - even Bitwarden cannot access your passwords</li></ol>"
                     }
                 ]
             }
@@ -429,8 +427,10 @@
                     const checkbox = document.createElement('input');
                     checkbox.type = 'checkbox';
                     checkbox.id = `checkbox-${currentItemId}`;
-                    checkbox.onchange = (e) => {
+                    checkbox.onclick = (e) => {
                         e.stopPropagation();
+                    };
+                    checkbox.onchange = (e) => {
                         handleCheckboxChange(currentItemId);
                     };
 
