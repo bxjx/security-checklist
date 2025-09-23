@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Checklist for Australian Community Groups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #0d9488;
+            --primary-blue: #2563eb;
+            --accent-dark: #1e293b;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --bg-section: #f1f5f9;
+            --hover-bg: #e2e8f0;
+            --border-color: #cbd5e1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: var(--accent-dark);
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .progress-container {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .progress-text {
+            font-size: 1.1em;
+        }
+
+        .clear-button {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        .clear-button:hover {
+            background: #dc2626;
+        }
+
+        .section {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: var(--bg-section);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .section-header:hover {
+            background: var(--hover-bg);
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .section-arrow {
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+
+        .section-arrow.expanded {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .section-content.expanded {
+            max-height: 2000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .checklist-items {
+            padding: 20px;
+        }
+
+        .checklist-item {
+            display: block;
+            padding: 12px;
+            margin-bottom: 10px;
+            background: var(--bg-section);
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .checklist-item:hover {
+            background: var(--hover-bg);
+        }
+
+        .item-header {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+
+        .item-instructions {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding-left: 32px;
+            color: var(--text-gray);
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .item-instructions.expanded {
+            max-height: 1000px;
+            margin-top: 12px;
+            padding-bottom: 8px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .item-instructions ol,
+        .item-instructions ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .item-instructions li {
+            margin: 6px 0;
+        }
+
+        .item-instructions p {
+            margin: 8px 0;
+        }
+
+        .item-instructions strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 12px;
+            margin-top: 4px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--primary-teal);
+        }
+
+        .checklist-item label {
+            cursor: pointer;
+            flex: 1;
+            user-select: none;
+        }
+
+        .checklist-item.checked label {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--text-gray);
+            font-size: 0.9em;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 1.2em;
+            }
+
+            .progress-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .clear-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Security Checklist</h1>
+            <p class="subtitle">For Australian Community Groups</p>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-text">
+                Progress: <span id="completed-count">0</span> / <span id="total-count">0</span> completed
+            </div>
+            <button class="clear-button" onclick="clearProgress()">Reset</button>
+        </div>
+
+        <div id="checklist-container">
+        </div>
+
+        <footer>
+            <p>Keep your community safe and secure</p>
+        </footer>
+    </div>
+
+    <script>
+        const checklistData = [
+            {
+                title: "Phone",
+                items: [
+                    {
+                        label: "Use passcode or fingerprint unlock only (not face unlocking)",
+                        instructions: ""
+                    },
+                    {
+                        label: "Enable device encryption",
+                        instructions: ""
+                    },
+                    {
+                        label: "Auto-updates enabled",
+                        instructions: ""
+                    },
+                    {
+                        label: "Voice control and 'always listening' assistants turned off",
+                        instructions: ""
+                    },
+                    {
+                        label: "Seized or confiscated phones are not to be used (for ongoing comms with fellow activists)",
+                        instructions: ""
+                    }
+                ]
+            },
+            {
+                title: "Phones at Actions",
+                items: [
+                    {
+                        label: "Option of burner phones",
+                        instructions: ""
+                    },
+                    {
+                        label: "Briefing on police rights with access to phones",
+                        instructions: ""
+                    },
+                    {
+                        label: "Consider leaving phone behind or risk confiscation. If willing to take the risk, use the Phone Protest Checklist",
+                        instructions: ""
+                    }
+                ]
+            },
+            {
+                title: "Laptop",
+                items: [
+                    {
+                        label: "Have a password",
+                        instructions: ""
+                    },
+                    {
+                        label: "Have hard-drive encryption",
+                        instructions: ""
+                    }
+                ]
+            },
+            {
+                title: "Signal",
+                items: [
+                    {
+                        label: "All new participants in action coordinating signal groups must be vetted by two or more people (see vetting guide)",
+                        instructions: ""
+                    },
+                    {
+                        label: "Signal should have Screen Lock and Hide Screen in App Switcher enabled",
+                        instructions: ""
+                    },
+                    {
+                        label: "Online coordination is done in Signal channels with disappearing messages set to 1 week or less",
+                        instructions: ""
+                    }
+                ]
+            },
+            {
+                title: "Sensitive Documents",
+                items: [
+                    {
+                        label: "All sensitive documents should be stored in CryptPad with a password and destruction date",
+                        instructions: ""
+                    }
+                ]
+            },
+            {
+                title: "Video Conferencing",
+                items: [
+                    {
+                        label: "Best practice is to only discuss specifics of action/tactical information and planning in person away from devices (ie, not on video conference)",
+                        instructions: ""
+                    },
+                    {
+                        label: "Video conferencing is done via Signal (installed on a computer rather than on phone)",
+                        instructions: ""
+                    },
+                    {
+                        label: "If Zoom is used, encryption must be turned on (requires everyone to use the Zoom app rather than online Zoom)",
+                        instructions: ""
+                    }
+                ]
+            },
+            {
+                title: "Social Media",
+                items: [
+                    {
+                        label: "Lock down personal social media accounts by default",
+                        instructions: ""
+                    },
+                    {
+                        label: "Review the public information about you to prevent doxxing",
+                        instructions: ""
+                    }
+                ]
+            },
+            {
+                title: "General",
+                items: [
+                    {
+                        label: "Review best practices on protection from scams and phishing",
+                        instructions: ""
+                    },
+                    {
+                        label: "Consider using a password manager",
+                        instructions: ""
+                    }
+                ]
+            }
+        ];
+
+        function initializeChecklist() {
+            const container = document.getElementById('checklist-container');
+            let itemId = 0;
+
+            checklistData.forEach((section, sectionIndex) => {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'section';
+
+                const header = document.createElement('div');
+                header.className = 'section-header';
+                header.onclick = () => toggleSection(sectionIndex);
+                header.innerHTML = `
+                    <h2 class="section-title">${section.title}</h2>
+                    <span class="section-arrow" id="arrow-${sectionIndex}">▼</span>
+                `;
+
+                const content = document.createElement('div');
+                content.className = 'section-content';
+                content.id = `section-${sectionIndex}`;
+
+                const itemsDiv = document.createElement('div');
+                itemsDiv.className = 'checklist-items';
+
+                section.items.forEach(item => {
+                    const currentItemId = itemId;
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'checklist-item';
+                    itemDiv.id = `item-${currentItemId}`;
+
+                    const headerDiv = document.createElement('div');
+                    headerDiv.className = 'item-header';
+                    headerDiv.onclick = () => toggleInstructions(currentItemId);
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.id = `checkbox-${currentItemId}`;
+                    checkbox.onchange = (e) => {
+                        e.stopPropagation();
+                        handleCheckboxChange(currentItemId);
+                    };
+
+                    const label = document.createElement('span');
+                    label.textContent = item.label;
+                    label.style.flex = '1';
+                    label.style.cursor = 'pointer';
+
+                    headerDiv.appendChild(checkbox);
+                    headerDiv.appendChild(label);
+
+                    const instructionsDiv = document.createElement('div');
+                    instructionsDiv.className = 'item-instructions';
+                    instructionsDiv.id = `instructions-${currentItemId}`;
+                    instructionsDiv.innerHTML = item.instructions;
+
+                    itemDiv.appendChild(headerDiv);
+                    itemDiv.appendChild(instructionsDiv);
+                    itemsDiv.appendChild(itemDiv);
+
+                    itemId++;
+                });
+
+                content.appendChild(itemsDiv);
+                sectionDiv.appendChild(header);
+                sectionDiv.appendChild(content);
+                container.appendChild(sectionDiv);
+            });
+
+            loadProgress();
+            updateProgress();
+        }
+
+        function toggleSection(sectionIndex) {
+            const content = document.getElementById(`section-${sectionIndex}`);
+            const arrow = document.getElementById(`arrow-${sectionIndex}`);
+
+            content.classList.toggle('expanded');
+            arrow.classList.toggle('expanded');
+        }
+
+        function toggleInstructions(itemId) {
+            const instructions = document.getElementById(`instructions-${itemId}`);
+            instructions.classList.toggle('expanded');
+        }
+
+        function handleCheckboxChange(itemId) {
+            const checkbox = document.getElementById(`checkbox-${itemId}`);
+            const itemDiv = document.getElementById(`item-${itemId}`);
+
+            if (checkbox.checked) {
+                itemDiv.classList.add('checked');
+            } else {
+                itemDiv.classList.remove('checked');
+            }
+
+            saveProgress();
+            updateProgress();
+        }
+
+        function saveProgress() {
+            const progress = {};
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                progress[checkbox.id] = checkbox.checked;
+            });
+            localStorage.setItem('securityChecklistProgress', JSON.stringify(progress));
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('securityChecklistProgress');
+            if (saved) {
+                const progress = JSON.parse(saved);
+                Object.keys(progress).forEach(checkboxId => {
+                    const checkbox = document.getElementById(checkboxId);
+                    if (checkbox) {
+                        checkbox.checked = progress[checkboxId];
+                        const itemId = checkboxId.replace('checkbox-', '');
+                        const itemDiv = document.getElementById(`item-${itemId}`);
+                        if (progress[checkboxId]) {
+                            itemDiv.classList.add('checked');
+                        }
+                    }
+                });
+            }
+        }
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const total = checkboxes.length;
+            const completed = Array.from(checkboxes).filter(cb => cb.checked).length;
+
+            document.getElementById('completed-count').textContent = completed;
+            document.getElementById('total-count').textContent = total;
+        }
+
+        function clearProgress() {
+            if (confirm('Are you sure you want to clear all progress? This cannot be undone.')) {
+                localStorage.removeItem('securityChecklistProgress');
+                const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                    const itemId = checkbox.id.replace('checkbox-', '');
+                    const itemDiv = document.getElementById(`item-${itemId}`);
+                    itemDiv.classList.remove('checked');
+                });
+                updateProgress();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeChecklist);
+    </script>
+</body>
+</html>
