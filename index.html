@@ -158,21 +158,24 @@
             cursor: pointer;
         }
 
-        .item-instructions {
+        .item-instructions-container {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
+        }
+
+        .item-instructions-container.expanded {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .item-instructions {
             padding-left: 32px;
             color: var(--text-gray);
             font-size: 0.95em;
             line-height: 1.6;
-        }
-
-        .item-instructions.expanded {
-            max-height: 1000px;
             margin-top: 12px;
             padding-bottom: 8px;
-            transition: max-height 0.5s ease-in;
         }
 
         .item-instructions ol,
@@ -442,13 +445,17 @@
                     headerDiv.appendChild(checkbox);
                     headerDiv.appendChild(label);
 
+                    const instructionsContainerDiv = document.createElement('div');
+                    instructionsContainerDiv.className = 'item-instructions-container';
+                    instructionsContainerDiv.id = `instructions-${currentItemId}`;
+
                     const instructionsDiv = document.createElement('div');
                     instructionsDiv.className = 'item-instructions';
-                    instructionsDiv.id = `instructions-${currentItemId}`;
                     instructionsDiv.innerHTML = item.instructions;
 
                     itemDiv.appendChild(headerDiv);
-                    itemDiv.appendChild(instructionsDiv);
+                    instructionsContainerDiv.appendChild(instructionsDiv);
+                    itemDiv.appendChild(instructionsContainerDiv);
                     itemsDiv.appendChild(itemDiv);
 
                     itemId++;
