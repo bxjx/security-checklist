@@ -129,13 +129,16 @@
             font-weight: 600;
         }
 
-        .section-arrow {
-            font-size: 1.2em;
+        .arrow {
             transition: transform 0.3s;
         }
 
-        .section-arrow.expanded {
+        .arrow.expanded {
             transform: rotate(180deg);
+        }
+
+        .section-header > .arrow {
+            font-size: 1.2em;
         }
 
         .section-content {
@@ -444,10 +447,10 @@
 
                 const header = document.createElement('div');
                 header.className = 'section-header';
-                header.onclick = () => toggleSection(sectionIndex);
+                header.onclick = (e) => toggleSection(e.target);
                 header.innerHTML = `
                     <h2 class="section-title">${section.title}</h2>
-                    <span class="section-arrow" id="arrow-${sectionIndex}">▼</span>
+                    <span class="arrow" id="arrow-${sectionIndex}">▼</span>
                 `;
 
                 const content = document.createElement('div');
@@ -465,7 +468,7 @@
 
                     const headerDiv = document.createElement('div');
                     headerDiv.className = 'item-header';
-                    headerDiv.onclick = () => toggleInstructions(currentItemId);
+                    headerDiv.onclick = (e) => toggleInstructions(e.target);
 
                     const checkbox = document.createElement('input');
                     checkbox.type = 'checkbox';
@@ -482,12 +485,16 @@
                     label.style.flex = '1';
                     label.style.cursor = 'pointer';
 
+                    const arrow = document.createElement('span');
+                    arrow.className = 'arrow';
+                    arrow.innerText = '⮟';
+
                     headerDiv.appendChild(checkbox);
                     headerDiv.appendChild(label);
+                    headerDiv.appendChild(arrow);
 
                     const instructionsContainerDiv = document.createElement('div');
                     instructionsContainerDiv.className = 'item-instructions-container';
-                    instructionsContainerDiv.id = `instructions-${currentItemId}`;
 
                     const instructionsDiv = document.createElement('div');
                     instructionsDiv.className = 'item-instructions';
@@ -511,17 +518,24 @@
             updateProgress();
         }
 
-        function toggleSection(sectionIndex) {
-            const content = document.getElementById(`section-${sectionIndex}`);
-            const arrow = document.getElementById(`arrow-${sectionIndex}`);
+        function toggleSection(target) {
+            const section = target.parentNode;
+            const content = section.querySelector(`.section-content`);
+            const arrow = section.querySelector(`.arrow`);
 
             content.classList.toggle('expanded');
             arrow.classList.toggle('expanded');
         }
 
-        function toggleInstructions(itemId) {
-            const instructions = document.getElementById(`instructions-${itemId}`);
+        function toggleInstructions(target) {
+            const itemHeader = target.parentNode;
+            const item = itemHeader.parentNode;
+
+            const instructions = item.querySelector('.item-instructions-container')
+            const arrow = item.querySelector('.arrow');
+
             instructions.classList.toggle('expanded');
+            arrow.classList.toggle('expanded');
         }
 
         function handleCheckboxChange(itemId) {
